@@ -14,7 +14,8 @@ export default class Calculator extends React.Component {
     let styles = this.getStyles();
     return (
       <div className='calculator'>
-        <h3>BMI Healthy Weight Calculator</h3>
+        <h3>Body Mass Index Calculator</h3>
+        <h3>by Sabur Ahmed</h3>
         <div className='bmi-result-container'>
           <div className='bmi-result'>
             <div className='bmi-result-number'>
