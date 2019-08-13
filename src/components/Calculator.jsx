@@ -15,7 +15,6 @@ export default class Calculator extends React.Component {
     return (
       <div className='calculator'>
         <h3>Body Mass Index Calculator</h3>
-        <h3>by Sabur Ahmed</h3>
         <div className='bmi-result-container'>
           <div className='bmi-result'>
             <div className='bmi-result-number'>
@@ -30,12 +29,13 @@ export default class Calculator extends React.Component {
         <div className='bmi-input'>
           <div className='input-fields'>
             <div className='input-group'>
-              <span className='label'>Height (cm)</span>
+            <p className="description">Input the needed parameters below and press "Enter"</p>
+              <span className='label'>Height in cm</span>
               <Range min={90} max={245} value={ this.state.height } onChange={ this.heightChange } />
             </div>
 
             <div className='input-group'>
-              <span className='label'>Weight (kg)</span>
+              <span className='label'>Weight in kg</span>
               <Range min={35} value={ this.state.weight } onChange={ this.weightChange } />
             </div>
           </div>
@@ -62,7 +62,7 @@ export default class Calculator extends React.Component {
       height: 156,
       weight: 76,
       bmi: 20.9,
-      bmiClass: 'Normal Weight'
+      bmiClass: 'Over Weight'
     };
   }
 
@@ -72,10 +72,10 @@ export default class Calculator extends React.Component {
   }
 
   getBmiClass = (bmi) => {
-    if (bmi < 18.5) return 'Underweight';
-    if (bmi >= 18.5 && bmi <= 24.9) return 'Normal Weight';
-    if (bmi >= 25 && bmi <= 29.9) return 'Overweight';
-    if (bmi >= 30) return 'Obese';
+    if (bmi < 18.5) return 'Your BMI result indicates that your are UNDERWEIGHT, so you may need to put on some weight. You are recommended to ask your Doctor or a Dietician for advice.';
+    if (bmi >= 18.5 && bmi <= 24.9) return 'Your BMI result indicates that you have a NORMAL WEIGHT, you are at a healthy weight for your height. By maintaining a healthy weight, you lower yur risk of developing serious health problems';
+    if (bmi >= 25 && bmi <= 29.9) return 'Your BMI result indicates that you are OVERWEIGHT. Your health may be at risk if you do not loose weight. You are recommended to talk to your Doctor or Dietician for advice.';
+    if (bmi >= 30) return 'Your BMI result indicates that you are OBESE, which means you are critically overweight. Your health may be at risk if you do not loose weight. You are recommended to talk to your Doctor or Dietician for advice.';
   }
 
   getStyles = () => {
